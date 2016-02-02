@@ -1,5 +1,5 @@
 {
-  "name": "anon-board",
+  "name": "anonboard",
   "version": "0.0.0",
   "description": "The Ember.js frontend for AnonBoard",
   "private": true,
