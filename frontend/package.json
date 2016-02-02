@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "ember build",
-    "start": "ember server"
+    "start": "ember server",
+    "start-proxy": "ember server --proxy http://localhost:8000"
   },
   "repository": {
     "type": "git",
