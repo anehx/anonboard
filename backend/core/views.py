@@ -1,8 +1,9 @@
 from rest_framework import viewsets
 
-from core import serializers, models
+from core import serializers, models, filters
 
 
 class TopicView(viewsets.ModelViewSet):
+    queryset         = models.Topic.objects.all()
     serializer_class = serializers.TopicSerializer
-    queryset = models.Topic.objects.all()
+    filter_class     = filters.TopicFilter
