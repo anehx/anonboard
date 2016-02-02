@@ -1,1 +1,4 @@
 django==1.9.2
+djangorestframework==3.3.2
+djangorestframework-jsonapi==2.0.0-beta.1
+django-filter==0.12.0
