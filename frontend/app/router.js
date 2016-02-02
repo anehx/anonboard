@@ -1,11 +1,12 @@
-import Ember from 'ember';
-import config from './config/environment';
+import Router from 'ember-router'
+import config from './config/environment'
 
-const Router = Ember.Router.extend({
+const AppRouter = Router.extend({
   location: config.locationType
-});
+})
 
-Router.map(function() {
-});
+AppRouter.map(function() {
+  this.route('topic', { path: '/:name' })
+})
 
-export default Router;
+export default AppRouter
