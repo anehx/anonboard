@@ -1,18 +1,24 @@
-import Ember from 'ember';
-import Resolver from 'ember/resolver';
-import loadInitializers from 'ember/load-initializers';
-import config from './config/environment';
+/* global Fingerprint2 */
 
-let App;
+import Ember            from 'ember'
+import Resolver         from 'ember/resolver'
+import loadInitializers from 'ember/load-initializers'
+import config           from './config/environment'
 
-Ember.MODEL_FACTORY_INJECTIONS = true;
+let App
+
+Ember.MODEL_FACTORY_INJECTIONS = true
 
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver
-});
+})
 
-loadInitializers(App, config.modulePrefix);
+define('fingerprintjs2', () => Object({
+  'default': Fingerprint2
+}))
 
-export default App;
+loadInitializers(App, config.modulePrefix)
+
+export default App

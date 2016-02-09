@@ -16,5 +16,7 @@ module.exports = function(defaults) {
     }
   })
 
+  app.import('bower_components/fingerprintjs2/fingerprint2.js')
+
   return app.toTree()
 }
