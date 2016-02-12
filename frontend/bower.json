@@ -7,7 +7,9 @@
     "ember-resolver": "~0.1.20",
     "jquery": "~2.1.0",
     "loader.js": "ember-cli/loader.js#3.4.0",
-    "fingerprintjs2": "^1.1.0"
+    "fingerprintjs2": "^1.1.0",
+    "pretender": "~0.10.1",
+    "Faker": "~3.0.0"
   },
   "resolutions": {
     "ember": "canary"
