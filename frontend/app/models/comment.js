@@ -2,12 +2,12 @@ import Model from 'ember-data/model'
 import attr  from 'ember-data/attr'
 
 import {
-  hasMany
+  belongsTo
 } from 'ember-data/relationships'
 
 export default Model.extend({
-  name:        attr('string'),
-  identifier:  attr('string'),
-  description: attr('string'),
-  threads:     hasMany('thread')
+  user:     belongsTo('user'),
+  thread:   belongsTo('thread'),
+  content:  attr('string'),
+  created:  attr('moment')
 })

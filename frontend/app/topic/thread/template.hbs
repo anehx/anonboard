@@ -1,0 +1,7 @@
+<h1>{{model.title}} in {{model.topic.name}}</h1>
+{{model.content}}
+
+<h2>Comments:</h2>
+{{#each model.comments as |comment|}}
+  {{comment.content}}<br><br>
+{{/each}}

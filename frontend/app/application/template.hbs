@@ -1,1 +1,21 @@
-{{liquid-outlet}}
+<main class="pure-g">
+
+  <nav class="pure-menu pure-u-1-6">
+
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item">{{#link-to 'index' class='pure-menu-link'}}Home{{/link-to}}</li>
+    </ul>
+
+    <span class="pure-menu-heading">Topics</span>
+
+    <ul class="pure-menu-list">
+      {{#each topics as |topic|}}
+        <li class="pure-menu-item">{{#link-to 'topic' topic class='pure-menu-link'}}{{topic.name}}{{/link-to}}</li>
+      {{/each}}
+    </ul>
+  </nav>
+
+  <section class="content pure-u-5-6">
+    {{liquid-outlet}}
+  </section>
+</main>

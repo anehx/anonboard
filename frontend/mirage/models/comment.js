@@ -1,8 +1,9 @@
 import {
   Model,
-  hasMany
+  belongsTo
 } from 'ember-cli-mirage'
 
 export default Model.extend({
-  threads: hasMany('thread')
+  user:   belongsTo('user'),
+  thread: belongsTo('thread')
 })

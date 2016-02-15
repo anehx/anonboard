@@ -9,7 +9,8 @@
     "loader.js": "ember-cli/loader.js#3.4.0",
     "fingerprintjs2": "^1.1.0",
     "pretender": "~0.10.1",
-    "Faker": "~3.0.0"
+    "Faker": "~3.0.0",
+    "pure": "^0.6.0"
   },
   "resolutions": {
     "ember": "canary"
