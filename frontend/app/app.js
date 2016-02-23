@@ -1,5 +1,3 @@
-/* global Fingerprint2 */
-
 import Ember            from 'ember'
 import Resolver         from 'ember/resolver'
 import loadInitializers from 'ember-load-initializers'
@@ -14,10 +12,6 @@ App = Ember.Application.extend({
   podModulePrefix: config.podModulePrefix,
   Resolver
 })
-
-define('fingerprintjs2', () => Object({
-  'default': Fingerprint2
-}))
 
 loadInitializers(App, config.modulePrefix)
 

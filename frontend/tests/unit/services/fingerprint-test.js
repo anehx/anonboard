@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit'
 
-moduleFor('service:navigation', 'Unit | Service | navigation', {
+moduleFor('service:fingerprint', 'Unit | Service | fingerprint ', {
 })
 
 test('it exists', function(assert) {

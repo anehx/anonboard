@@ -10,9 +10,11 @@ module.exports = function(defaults) {
       includePolyfill: true,
       optional: [ 'es7.decorators', 'es7.asyncFunctions' ],
     },
-    tests: false,
     sassOptions: {
       extension: 'sass'
+    },
+    'ember-cli-qunit': {
+      useLintTree: false
     }
   })
 

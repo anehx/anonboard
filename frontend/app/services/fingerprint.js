@@ -1,6 +1,7 @@
-import Service     from 'ember-service'
-import Fingerprint from 'fingerprintjs2'
-import computed    from 'ember-computed-decorators'
+/* global Fingerprint2 */
+
+import Service      from 'ember-service'
+import computed     from 'ember-computed-decorators'
 
 export default Service.extend({
   fingerprint: null,
