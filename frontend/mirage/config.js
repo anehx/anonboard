@@ -24,6 +24,8 @@ export default function() {
   })
   this.get('/v1/threads/:id')
 
-  this.get('/v1/comments')
-  this.get('/v1/comments/:id')
+  this.get  ('/v1/comments')
+  this.post ('/v1/comments')
+  this.get  ('/v1/comments/:id')
+  this.patch('/v1/comments/:id')
 }

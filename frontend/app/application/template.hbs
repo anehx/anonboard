@@ -9,8 +9,8 @@
     <span class="pure-menu-heading">Topics</span>
 
     <ul class="pure-menu-list">
-      {{#each topics as |topic|}}
-        <li class="pure-menu-item">{{#link-to 'topic' topic class='pure-menu-link'}}{{topic.name}}{{/link-to}}</li>
+      {{#each navigation.entries as |topic|}}
+        <li class="pure-menu-item">{{#link-to 'topic' topic.identifier class='pure-menu-link'}}{{topic.name}}{{/link-to}}</li>
       {{/each}}
     </ul>
   </nav>

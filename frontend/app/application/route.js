@@ -1,13 +1,10 @@
-import Route from 'ember-route'
+import Route         from 'ember-route'
+import injectService from 'ember-service/inject'
 
 export default Route.extend({
-  beforeModel() {
-    return this.store.findAll('topic')
-  },
-
   setupController(controller, model) {
     this._super(...arguments)
 
-    controller.set('topics', this.store.peekAll('topic'))
+    controller.set('navigation', injectService())
   }
 })

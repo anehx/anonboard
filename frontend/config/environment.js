@@ -8,7 +8,8 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        'ds-finder-include': true
+        // Here you can enable experimental features on an ember canary build
+        // e.g. 'with-controller': true
       }
     },
 

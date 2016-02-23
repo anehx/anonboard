@@ -1,18 +1,15 @@
 {
   "name": "anonboard",
   "dependencies": {
-    "ember": "^2.3.0",
+    "ember": "^2.3.1",
     "ember-cli-shims": "0.1.0",
-    "ember-load-initializers": "0.1.7",
-    "ember-resolver": "~0.1.20",
-    "jquery": "~2.1.0",
-    "loader.js": "ember-cli/loader.js#3.4.0",
-    "fingerprintjs2": "^1.1.0",
-    "pretender": "~0.10.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0",
     "Faker": "~3.0.0",
-    "pure": "^0.6.0"
-  },
-  "resolutions": {
-    "ember": "canary"
+    "fingerprintjs2": "^1.1.0",
+    "lodash": "~3.10.1",
+    "moment": "^2.8.0",
+    "moment-timezone": "^0.5.0",
+    "pretender": "~0.12.0"
   }
 }
