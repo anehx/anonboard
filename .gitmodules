@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:anehx/anonboard-frontend.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:anehx/anonboard-backend.git
