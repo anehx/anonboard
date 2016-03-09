@@ -1,18 +1,23 @@
 PARALLEL=$(shell command -v parallel >/dev/null && echo 'parallel' || echo 'parallel-moreutils')
 
+pull:
+	@git pull
+	@git submodule update
+
 install: install-backend install-frontend
 
 install-backend:
 	@echo "Installing backend..."
-	@echo "Installing pip packages..."
-	@pip install -r backend/requirements.txt > /dev/null
+	@make -C ./backend install
 
 install-frontend:
 	@echo "Installing frontend..."
 	@echo "Installing node packages..."
 	@npm --prefix=frontend install > /dev/null
+	@echo "Done!"
 	@echo "Installing bower packages..."
 	@cd frontend && bower install > /dev/null
+	@echo "Done!"
 
 start-backend:
 	@echo "Starting backend..."
