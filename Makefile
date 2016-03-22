@@ -21,15 +21,11 @@ install-frontend:
 
 start-backend:
 	@echo "Starting backend..."
-	@./backend/manage.py runserver 0.0.0.0:8000
-
-start-frontend-only:
-	@echo "Starting frontend..."
-	@npm --prefix=frontend start
+	@make -C backend start
 
 start-frontend:
-	@echo "Starting frontend with proxy to backend..."
-	@npm --prefix=frontend run start-proxy
+	@echo "Starting frontend..."
+	@npm --prefix=frontend run start
 
 start:
 	@$(PARALLEL) -j 2 -- "make start-backend" "make start-frontend"
