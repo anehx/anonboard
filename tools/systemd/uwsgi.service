@@ -3,7 +3,7 @@ Description=uWSGI Emperor for serving anonboard
 After=syslog.target
 
 [Service]
-ExecStart=/usr/bin/uwsgi --ini /usr/share/anonboard/tools/uwsgi/anonboard.ini
+ExecStart=/usr/bin/uwsgi --ini /usr/share/anonboard/tools/uwsgi/uwsgi.ini
 RuntimeDirectory=uwsgi
 Restart=always
 KillSignal=SIGQUIT
