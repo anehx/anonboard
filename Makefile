@@ -18,12 +18,17 @@ setup:
 	@echo "Please change the settigns in '${BACKEND}/anonboard/settings_production.py'"
 
 deploy-frontend:
-	@cd ${FRONTEND}; npm install
-	@cd ${FRONTEND}; bower install --allow-root
-	@cd ${FRONTEND}; npm run build
+	@cd ${FRONTEND} && bower install --allow-root
+	@npm --prefix=${FRONTEND} install 
+	@npm --prefix=${FRONTEND} run build
 	@rsync -az --delete ${FRONTEND}/dist ${WWW}
 
 deploy-backend:
-	@bash -c 'source ${ENV}/bin/activate && pip install -r ${BACKEND}/requirements.txt --upgrade'
-	@bash -c 'source ${ENV}/bin/activate && ${SETTINGS} ${BACKEND}/manage.py migrate'
-	@bash -c 'source ${ENV}/bin/activate && ${SETTINGS} ${BACKEND}/manage.py collectstatic'
+	@bash -c 'source ${ENV}/bin/activate && \
+	pip install -r ${BACKEND}/requirements.txt --upgrade && \
+	${SETTINGS} ${BACKEND}/manage.py migrate --no-input && \
+	${SETTINGS} ${BACKEND}/manage.py collectstatic --no-input'
+	@systemctl restart anonboard.service
+
+deploy: deploy-frontend deploy-backend
+	@systemctl restart nginx.service
