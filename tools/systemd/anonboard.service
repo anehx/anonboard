@@ -1,14 +1,14 @@
 [Unit]
-Description=uWSGI Emperor for serving anonboard
+Description=uWSGI instance to serve anonboard
 After=syslog.target
 
 [Service]
-ExecStart=/usr/bin/uwsgi --ini /usr/share/anonboard/tools/uwsgi/anonboard.ini
-RuntimeDirectory=uwsgi
+ExecStart=/root/.pyenv/shims/uwsgi --ini /usr/share/anonboard/tools/uwsgi/anonboard.ini
+ExecReload=/bin/kill -HUP $MAINPID
+SuccessExitStatus=30
 Restart=always
-KillSignal=SIGQUIT
-Type=notify
-StandardError=syslog
+Type=forking
+PIDFile=/tmp/anonboard.pid
 NotifyAccess=all
 
 [Install]
