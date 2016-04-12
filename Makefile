@@ -9,6 +9,8 @@ WWW=/var/www/anonboard
 
 DJANGO_SETTINGS_MODULE=anonboard.settings_production
 
+SETTINGS=DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
+
 setup:
 	@ln -s ${APP}/tools/systemd/anonboard.service /etc/systemd/system/anonboard.service
 	@ln -s ${APP}/tools/nginx/anonboard.conf /etc/nginx/sites-enabled/anonboard.conf
@@ -22,7 +24,6 @@ deploy-frontend:
 	@rsync -az --delete ${FRONTEND}/dist ${WWW}
 
 deploy-backend:
-	@export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
 	@source ${ENV}/bin/activate; pip install -r ${BACKEND}/requirements.txt --upgrade
-	@source ${ENV}/bin/activate; ${BACKEND}/manage.py migrate
-	@source ${ENV}/bin/activate; ${BACKEND}/manage.py collectstatic
+	@source ${ENV}/bin/activate; ${SETTINGS} ${BACKEND}/manage.py migrate
+	@source ${ENV}/bin/activate; ${SETTINGS} ${BACKEND}/manage.py collectstatic
