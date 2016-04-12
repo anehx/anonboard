@@ -28,6 +28,7 @@ deploy-backend:
 	pip install -r ${BACKEND}/requirements.txt --upgrade && \
 	${SETTINGS} ${BACKEND}/manage.py migrate --no-input && \
 	${SETTINGS} ${BACKEND}/manage.py collectstatic --no-input'
+	@systemctl daemon-reload
 	@systemctl restart anonboard.service
 
 deploy: deploy-frontend deploy-backend
