@@ -24,6 +24,6 @@ deploy-frontend:
 	@rsync -az --delete ${FRONTEND}/dist ${WWW}
 
 deploy-backend:
-	@source ${ENV}/bin/activate; pip install -r ${BACKEND}/requirements.txt --upgrade
-	@source ${ENV}/bin/activate; ${SETTINGS} ${BACKEND}/manage.py migrate
-	@source ${ENV}/bin/activate; ${SETTINGS} ${BACKEND}/manage.py collectstatic
+	@bash -c 'source ${ENV}/bin/activate && pip install -r ${BACKEND}/requirements.txt --upgrade'
+	@bash -c 'source ${ENV}/bin/activate && ${SETTINGS} ${BACKEND}/manage.py migrate'
+	@bash -c 'source ${ENV}/bin/activate && ${SETTINGS} ${BACKEND}/manage.py collectstatic'
