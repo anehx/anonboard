@@ -7,5 +7,5 @@ setup:
 deploy-frontend:
 	@cd frontend; npm install
 	@cd frontend; bower install --allow-root
-	@cd frontend; ember build --prod
+	@cd frontend; npm run build
 	@rsync -az --delete frontend/dist /var/www/anonboard/dist
