@@ -23,6 +23,6 @@ deploy-frontend:
 
 deploy-backend:
 	@export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}
-	@${ENV}/bin/activate; pip install -r ${BACKEND}/requirements.txt --upgrade
-	@${ENV}/bin/activate; ${BACKEND}/manage.py migrate
-	@${ENV}/bin/activate; ${BACKEND}/manage.py collectstatic
+	@source ${ENV}/bin/activate; pip install -r ${BACKEND}/requirements.txt --upgrade
+	@source ${ENV}/bin/activate; ${BACKEND}/manage.py migrate
+	@source ${ENV}/bin/activate; ${BACKEND}/manage.py collectstatic
