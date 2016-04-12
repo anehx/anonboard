@@ -1,5 +1,11 @@
 setup:
-	@ln -s tools/systemd/uwsgi.service /etc/systemd/system/uwsgi.service
-	@ln -s tools/nginx/vhost.conf /etc/nginx/sites-enabled/anonboard
-	@cp backend/anonboard/settings_production.sample.py backend/anonboard/settings_production.py
+	@ln -s ${PWD}/tools/systemd/anonboard.service /etc/systemd/system/anonboard.service
+	@ln -s ${PWD}/tools/nginx/anonboard.conf /etc/nginx/sites-enabled/anonboard.conf
+	@cp ${PWD}/backend/anonboard/settings_production.sample.py ${PWD}/backend/anonboard/settings_production.py
 	@echo "Please change the settigns in 'backend/anonboard/settings_production.py'"
+
+deploy-frontend:
+	@cd frontend; npm install
+	@cd frontend; bower install --allow-root
+	@cd frontend; ember build --prod
+	@rsync -az --delete frontend/dist /var/www/anonboard/dist
