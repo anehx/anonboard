@@ -7,7 +7,6 @@ An application for anonymously discussing certain topics. This project is for a 
 
 Please install **all** of the following packages:
 
-**Prequisites:**
 * python3.5
 * python-pip
 * python-virtualenv
@@ -59,6 +58,31 @@ $ DJANGO_SETTINGS_MODULE=anonboard.settings_production python manage.py createsu
 
 You may have to change the server name and the SSL settings in your nginx config (`/etc/nginx/sites-enabled/anonboard.conf`).
 Now you should be able to browse to http://yoururl.com/admin where you can login with your created superuser and configure the topics. The frontend is available at http://yoururl.com and the API at http://yoururl.com/api/v1.
+
+# Testing
+This is only for developers who are running the app in a dev environment!
+
+**Requirements**
+* Firefox
+* PhantomJS
+* docker
+* docker-compose
+
+## Frontend
+```bash
+$ cd frontend
+$ npm i && bower i
+$ npm test
+```
+## Backend
+```bash
+$ cd backend
+$ virtualenv --python=python3.5 env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ docker-compose up -d
+$ python manage.py test
+```
 
 # License
 MIT - more [here](LICENSE)
