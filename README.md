@@ -10,6 +10,7 @@ Please install **all** of the following packages:
 **Prequisites:**
 * python3.5
 * python-pip
+* python-virtualenv
 * nodejs
 * npm
 * bower
@@ -48,10 +49,12 @@ DATABASES = {
 }
 ```
 
-After you've done this you can run your first deploy and create a new user:
+After you've done this you can create a virtualenv, run your first deploy and create a new user:
 ```bash
+$ cd /usr/share/anonboard/backend
+$ virtualenv --python=python3.5 env
 $ make deploy
-$ DJANGO_SETTINGS_MODULE=anonboard.settings_production createsuperuser
+$ DJANGO_SETTINGS_MODULE=anonboard.settings_production python manage.py createsuperuser
 ```
 
 You may have to change the server name and the SSL settings in your nginx config (`/etc/nginx/sites-enabled/anonboard.conf`).
